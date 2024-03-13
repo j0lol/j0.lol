@@ -17,11 +17,6 @@ async fn main() {
     axum::serve(listener, app).await.unwrap();
 }
 
-// // basic handler that responds with a static string
-// async fn root() -> &'static str {
-//     "Hello, World!"
-// }
-
 #[derive(Template)]
 #[template(path = "index.html")]
 struct IndexTemplate {}

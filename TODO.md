@@ -1,0 +1,2 @@
+- [ ] Add custom oneko
+  - [ ] Draw deer sprites for it

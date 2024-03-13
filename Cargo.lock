@@ -291,18 +291,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "290f1a1d9242c78d09ce40a5e87e7554ee637af1351968159f4952f028f75604"
 
 [[package]]
-name = "hello"
-version = "0.1.0"
-dependencies = [
- "askama",
- "askama_axum",
- "axum",
- "tokio",
- "tower-http",
- "tracing-subscriber",
-]
-
-[[package]]
 name = "hermit-abi"
 version = "0.1.18"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1007,6 +995,18 @@ name = "wasi"
 version = "0.11.0+wasi-snapshot-preview1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9c8d87e72b64a3b4db28d11ce29237c246188f4f51057d65a7eab63b7987e423"
+
+[[package]]
+name = "website"
+version = "0.1.0"
+dependencies = [
+ "askama",
+ "askama_axum",
+ "axum",
+ "tokio",
+ "tower-http",
+ "tracing-subscriber",
+]
 
 [[package]]
 name = "winapi"
