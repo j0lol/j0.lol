@@ -1,13 +1,23 @@
 @font-face {
     font-family: "DM Sans";
-    src: local("DM Sans"),
-    url("fonts/DMSans-VariableFont_opsz,wght.ttf") format("truetype");
+    src:
+        local("DM Sans"),
+        url("fonts/DMSans-VariableFont_opsz,wght.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "DM Sans Italic";
+    src:
+        local("DM Sans Italic"),
+        url("fonts/DMSans-Italic-VariableFont_opsz\,wght.ttf")
+            format("truetype");
 }
 
 @font-face {
     font-family: "Cascadia Code";
-    src: local("Cascadia Code"),
-    url("fonts/CascadiaCode.ttf") format("truetype");
+    src:
+        local("Cascadia Code"),
+        url("fonts/CascadiaCode.ttf") format("truetype");
 }
 
 :root {
@@ -33,8 +43,9 @@
     --steel-gray-700: 113 96 162;
     --steel-gray-800: 93 80 131;
     --steel-gray-900: 77 69 106;
+    --steel-gray-925: 55 49 76;
     --steel-gray-950: 34 30 46;
-
+    --steel-gray-975: 17 15 23;
 
     --accent: rgb(var(--dull-lavender-400));
     --bg-header: rgb(var(--dull-lavender-400));
@@ -52,7 +63,7 @@
         --bg: rgb(var(--steel-gray-950));
         --fg: rgb(var(--dull-lavender-200));
         --anchor: rgb(var(--dull-lavender-400));
-    } 
+    }
 }
 
 body {
@@ -85,25 +96,29 @@ body {
             padding: 0 0.5em;
 
             color: var(--fg-header);
-        
+
             & #logo {
                 font-family: "Cascadia Code", sans-serif;
                 font-weight: 500;
                 font-feature-settings: "zero";
             }
+
             &:hover {
                 background-color: rgb(0 0 0 / 10%);
             }
+
             &:active {
                 background-color: rgb(0 0 0 / 20%);
             }
+
             & a {
                 text-decoration: none;
                 color: var(--fg-header);
                 display: flex;
             }
         }
-    }    
+    }
+
     article.main {
         flex-grow: 1;
         font-family: "DM Sans", sans-serif;
@@ -113,15 +128,64 @@ body {
             color: var(--anchor);
         }
 
-        & h1,h2,h3,h4,h5,h6 {
+        & h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-family: "Cascadia Code", sans-serif;
             font-feature-settings: "zero";
             font-weight: 500;
+            margin-bottom: 0.5em;
         }
-        & code {
+
+        & code, & pre {
             font-family: "Cascadia Code", sans-serif;
             font-feature-settings: "zero";
             font-weight: 300;
+        }
+
+        & img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid rgb(53 50 68);
+            border-radius: 0.5em;
+        }
+        & .page-section,
+        section {
+            max-width: min(760px, 100%);
+            margin: 0 auto;
+        }
+
+        & #title {
+            font-size: 2em;
+            margin-bottom: 0.2em;
+        }
+
+        & .metadata {
+            /* make italic */
+            font-family: "DM Sans Italic", sans-serif;
+            color: rgb(var(--dull-lavender-200) / 90%);
+            margin-bottom: 1em;
+            display: flex;
+            flex-direction: row;
+            gap: 1em;
+        }
+
+        & .table-of-contents {
+            background-color: rgb(var(--steel-gray-975));
+            list-style: none;
+            padding-inline-start: 0;
+            padding: 1em;
+
+            & h3 {
+                margin-top: 0;
+            }
+
+            & a {
+                color: var(--fg);
+            }
         }
     }
 
@@ -141,12 +205,14 @@ body {
             flex-direction: row;
             align-items: center;
             flex-wrap: wrap;
+
             & > * {
                 width: 88px;
                 height: 31px;
                 display: block;
             }
         }
+
         & div.socials {
             display: flex;
             flex-direction: row;
@@ -158,20 +224,25 @@ body {
             & a {
                 color: var(--fg-header);
             }
-            & details.social-details, details[open].social-details {
+
+            & details.social-details,
+            details[open].social-details {
                 display: inline;
                 flex-direction: row;
                 flex-wrap: nowrap;
                 position: relative;
+
                 & summary {
                     cursor: pointer;
                     display: inline;
                     position: relative;
                     list-style: none;
+
                     &::-webkit-details-marker {
                         display: none;
                     }
                 }
+
                 & span {
                     position: absolute;
                     bottom: 1.7em;
@@ -185,16 +256,17 @@ body {
                     text-align: left;
                     width: max-content;
                     max-width: 80vw;
+
                     & a {
                         color: var(--fg);
                     }
+
                     & ul {
                         padding-inline-start: 12px;
                         margin-block-start: 0;
                     }
                 }
             }
-
         }
     }
 }
@@ -209,16 +281,20 @@ span.icon {
     .mobile-hide {
         display: none;
     }
+
     body {
         footer {
             padding: 0.5em;
             flex-direction: column-reverse;
             font-size: 2em;
+
             & div._88x31s {
                 align-items: baseline;
             }
+
             & div.socials {
-                & details.social-details,details[open].social-details  {
+                & details.social-details,
+                details[open].social-details {
                     /* position: static; */
                     & span {
                         position: revert;
@@ -237,4 +313,28 @@ span.icon {
             }
         }
     }
+}
+
+pre {
+    background-color: rgb(28, 24, 37);
+    padding: 1em;
+    border: 1px solid rgb(53 50 68);
+    border-radius: 0.5em;
+    font-family: "Cascadia Code", monospace;
+    text-overflow: clip;
+    overflow-x: scroll;
+    & b {
+        font-weight: 500;
+    }
+}
+
+
+pre[lang="ansi"] {
+    --red: rgb(243, 139, 168);
+    --green: rgb(166, 227, 161);
+    --yellow: rgb(249, 226, 175);
+    --blue: rgb(137, 180, 250);
+    --pink: rgb(245, 194, 231);
+    --teal: rgb(148, 226, 213);
+    --black: #6c7086;
 }

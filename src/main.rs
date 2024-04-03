@@ -1,7 +1,10 @@
+mod post;
+
 use askama::Template;
 use axum::{routing::get, Router};
-const URL: &str = "0.0.0.0:8080";
 use tower_http::services::fs::ServeDir;
+
+const URL: &str = "0.0.0.0:8080";
 
 #[tokio::main]
 async fn main() {
@@ -10,6 +13,8 @@ async fn main() {
 
     let app = Router::new()
         .route("/", get(index))
+        .route("/posts", get(post::posts))
+        .route("/post/:path", get(post::post))
         .nest_service("/static", ServeDir::new("static"));
 
     println!("Binding to {}", URL);

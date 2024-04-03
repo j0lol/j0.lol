@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width" />
+  <link href="/static/normalize.css" rel="stylesheet" />
   <link href="/static/style.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous" />
   <link rel="stylesheet" href="/static/font-awesome-extension.css" />
   <meta name="theme-color" content="#b497ee" />
   <meta name="apple-mobile-web-app-status-bar-style" content="#b497ee" />
+  {% block head %}{% endblock %}
   <title>j0.lol</title>
 </head>
 <body>
@@ -15,7 +17,7 @@
 <nav>
   <ul>
     <li><a href="/" id="logo">j0.lol</a></li>
-    <li><a href="/">Blog 🚧</a></li>
+    <li><a href="/posts">Blog</a></li>
   </ul>
 </nav>
 <article class="main">
@@ -28,7 +30,6 @@
     <a href="https://nano.lgbt"><img src="/static/badges/nano.png" alt="nano" title="nano"></a>
   </div>
   <div class="socials">
-    <span class="mobile-hide">no js!</span>
     <a href="https://wetdry.world/@j0"> <i class="fa fa-mastodon" aria-label="Mastodon link"></i></a>
     <a href="https://bsky.app/profile/j0.lol"> <i class="fa fae-butterfly" aria-label="Bluesky link"></i></a>
     <details class="social-details">
@@ -56,8 +57,7 @@
       </span>
     </details>
   </div>
-  
+
 </footer>
 </body>
 </html>
-

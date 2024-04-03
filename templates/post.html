@@ -1,6 +1,30 @@
-{% extends "base.html" %}
-{% block content %}
-<h1>Title</h1>
-<span class="metadata">Date - X minute read</span>
-<p>Content</p>
-{% endblock %}
+{% extends "base.html" %} {% block content %}
+<h1 id="title" class="page-section">{{title}}</h1>
+<span class="metadata page-section">
+    <span title="{{date}}"> Posted {{date.relative()}} </span>
+    {# <span> {{read_time}} read </span> #}
+</span>
+
+<ul class="table-of-contents page-section">
+    <h3>Contents</h3>
+    {% for header in headers %}
+    <li><a href="{{header.url}}">{{header.name}}</a></li>
+    {% endfor %}
+
+</ul>
+
+<div class="page-section">
+    {{content|e("none")}}
+</div> {#
+
+
+<section>
+    <p>Preface</p>
+</section>
+<section>
+    <h2>A Heading</h2>
+    <p>Content</p>
+</section>
+
+#} {% endblock %}
+</div>

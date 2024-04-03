@@ -18,8 +18,10 @@ RUN useradd -ms /bin/bash app
 WORKDIR /app
 
 # Get compiled binaries from builder's cargo install directory
+COPY --from=builder /usr/src/app/posts /app/posts
 COPY --from=builder /usr/src/app/static /app/static
 COPY --from=builder /usr/src/app/website /app/website
 
+ENV SITE_ENV=PROD
 # Run the app
 CMD ./website
