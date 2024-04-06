@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block content %}
 <h1 id="title" class="page-section">{{title}}</h1>
 <span class="metadata page-section">
-    <span title="{{date}}"> Posted {{date.relative()}} </span>
+    <span title="{{date}}"> Posted {{rel_date}} </span>
     {# <span> {{read_time}} read </span> #}
 </span>
 
@@ -14,7 +14,7 @@
 </ul>
 
 <div class="page-section">
-    {{content|e("none")}}
+    {{content|safe}}
 </div> {#
 
 
